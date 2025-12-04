@@ -1,0 +1,13 @@
+
+<resources>
+    <string name="app_name">Vaani</string>
+    <string name="accessibility_service_description">Vaani needs accessibility permissions to control the phone and perform actions on your behalf.</string>
+    <string-array name="languages_array">
+        <item>English</item>
+        <item>Telugu</item>
+        <item>Hindi</item>
+        <item>Tamil</item>
+        <item>Kannada</item>
+        <item>Malayalam</item>
+    </string-array>
+</resources>

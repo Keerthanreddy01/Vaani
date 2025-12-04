@@ -1,0 +1,99 @@
+# VAANI Configuration File
+
+# Project Settings
+project:
+  name: "VAANI"
+  version: "0.1.0"
+  description: "Voice-Activated AI Natural Interface"
+
+# Data Settings
+data:
+  audio_raw_dir: "data/audio_raw"
+  transcripts_dir: "data/transcripts"
+  queries_dir: "data/queries"
+  annotations_dir: "data/annotations"
+  sample_rate: 16000
+  audio_format: "wav"
+
+# Model Settings
+models:
+  asr:
+    provider: "google"  # Options: google, whisper
+    model_name: "whisper-base"
+    language: "en"
+  
+  nlu:
+    model_type: "transformer"  # Options: transformer, sklearn
+    num_intents: 10
+    max_sequence_length: 128
+  
+  dst:
+    max_history: 5
+    context_window: 3
+  
+  dm:
+    strategy: "rule_based"  # Options: rule_based, ml_based
+
+# Training Settings
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  num_epochs: 10
+  validation_split: 0.2
+  early_stopping_patience: 3
+
+# Pipeline Settings
+pipeline:
+  vad:
+    enabled: true
+    threshold: 0.5
+    min_speech_duration: 0.3
+  
+  asr:
+    timeout: 10
+    language: "en-IN"  # Indian English
+  
+  nlu:
+    confidence_threshold: 0.7
+  
+  tts:
+    engine: "android"  # Options: android, gtts, pyttsx3
+    speed: 1.0
+    pitch: 1.0
+
+# Logging Settings
+logging:
+  level: "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+  log_dir: "logs"
+  log_file: "vaani.log"
+  max_file_size: "10MB"
+  backup_count: 5
+
+# API Settings
+api:
+  google_cloud:
+    credentials_file: "credentials.json"
+    project_id: "your-project-id"
+  
+  openai:
+    api_key: "your-api-key"
+
+# Android App Settings
+android:
+  package_name: "com.vaani.assistant"
+  min_sdk_version: 21
+  target_sdk_version: 33
+  
+  # Phone Mode Settings
+  phone:
+    device_id: "96346669290005H"
+    device_model: "Vivo"
+    usb_debugging: true
+    adb_path: "C:\\Users\\keert\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.exe"
+
+# Development Settings
+development:
+  debug_mode: true
+  verbose_logging: true
+  save_intermediate_outputs: true
+

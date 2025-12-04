@@ -1,0 +1,202 @@
+# VAANI Application Configuration
+# Configuration for all VAANI components
+
+# Project Information
+project:
+  name: "VAANI"
+  version: "0.1.0"
+  description: "Voice-Activated AI Natural Interface"
+  
+# Data Paths
+data:
+  root: "data"
+  audio_raw: "data/audio_raw"
+  transcripts: "data/transcripts"
+  queries: "data/queries"
+  annotations: "data/annotations"
+  nlu: "data/nlu"
+  whisper_dataset: "data/whisper_dataset"
+
+# Model Paths
+models:
+  root: "models"
+  asr:
+    google: "models/asr/google"
+    whisper: "models/asr/whisper_finetuned"
+  nlu:
+    intent_classifier: "models/nlu/intent_classifier.pkl"
+    entity_extractor: "models/nlu/entity_extractor"
+  dst: "models/dst"
+  dm: "models/dm"
+
+# ASR Configuration
+asr:
+  engine: "whisper"  # whisper, google, or hybrid
+  fallback_to_google: true
+
+  google:
+    language_code: "en-IN"
+    sample_rate: 16000
+    encoding: "LINEAR16"
+    enable_automatic_punctuation: true
+
+  whisper:
+    model_size: "base"  # tiny, base, small, medium, large
+    language: "en"
+    task: "transcribe"
+    device: "cpu"  # cuda or cpu
+    compute_type: "float32"
+
+  evaluation:
+    metrics: ["wer", "cer"]
+
+# NLU Configuration
+nlu:
+  intents:
+    - "GREETING"
+    - "QUERY_TIME"
+    - "QUERY_WEATHER"
+    - "OPEN_APP"
+    - "CALL_PERSON"
+    - "GENERAL_KNOWLEDGE"
+    - "ALARM_SET"
+    - "REMINDER_SET"
+    - "JOKE"
+    - "CASUAL_CHAT"
+  
+  entities:
+    - "TIME"
+    - "LOCATION"
+    - "PERSON"
+    - "APP"
+    - "DATE"
+    - "TASK"
+  
+  intent_classifier:
+    vectorizer:
+      max_features: 1000
+      ngram_range: [1, 2]
+      lowercase: true
+    classifier:
+      kernel: "linear"
+      C: 1.0
+      probability: true
+  
+  entity_extractor:
+    spacy_model: "en_core_web_sm"
+    training_iterations: 30
+    dropout: 0.2
+
+# Dialogue State Tracking
+dst:
+  max_history: 10
+  session_timeout: 1800  # 30 minutes in seconds
+  context_persistence: true
+
+# Decision Manager
+dm:
+  rule_based: true
+  confidence_threshold: 0.7
+  fallback_intent: "CASUAL_CHAT"
+
+# Natural Language Generation
+nlg:
+  template_based: true
+  contextual_greetings: true
+  randomize_responses: true
+
+# Audio Processing
+audio:
+  sample_rate: 16000
+  channels: 1
+  format: "wav"
+  max_duration: 30.0  # seconds
+  chunk_size: 8000  # samples per chunk
+  chunk_duration: 0.5  # seconds
+
+# TTS Configuration
+tts:
+  engine: "gtts"  # gtts, pyttsx3, coqui
+  language: "en"
+  speed: 1.0
+
+# VAD Configuration
+vad:
+  enabled: true
+  model: "silero"
+  threshold: 0.5
+  min_speech_duration_ms: 250
+  min_silence_duration_ms: 500
+  max_silence_chunks: 10
+
+# API Configuration
+api:
+  weather:
+    provider: "openweathermap"
+    api_key: "${WEATHER_API_KEY}"
+    timeout: 10
+  
+  knowledge:
+    provider: "wikipedia"
+    timeout: 10
+
+# Logging Configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_dir: "logs"
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  log_to_file: true
+  log_to_console: true
+
+# Training Configuration
+training:
+  seed: 42
+  test_size: 0.2
+  validation_size: 0.1
+  batch_size: 32
+  epochs: 10
+  learning_rate: 0.001
+
+# Evaluation Configuration
+evaluation:
+  metrics_dir: "models/evaluation"
+  save_predictions: true
+  save_confusion_matrix: true
+
+# Android App Configuration
+android:
+  package_name: "com.vaani.assistant"
+  min_sdk: 24
+  target_sdk: 33
+
+# Actions Configuration
+actions:
+  safe_mode: true
+  confirm_system_shutdown: true
+  confirm_system_restart: true
+
+# App Paths
+apps:
+  spotify: "C:\\Users\\keert\\AppData\\Roaming\\Spotify\\Spotify.exe"
+  chrome: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
+  whatsapp: "C:\\Users\\keert\\AppData\\Local\\Programs\\WhatsApp\\WhatsApp.exe"
+  notepad: "notepad.exe"
+  calc: "calc.exe"
+  calculator: "calc.exe"
+  paint: "mspaint.exe"
+  explorer: "explorer.exe"
+
+# Development Settings
+development:
+  debug: true
+  verbose: true
+  save_intermediate_results: true
+
+# Production Settings
+production:
+  debug: false
+  verbose: false
+  save_intermediate_results: false
+  enable_analytics: true
+  enable_crash_reporting: true
+

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F0F1E"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:id="@+id/stepContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to VAANI"
+            android:textSize="32sp"
+            android:textColor="#00D4FF"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"/>
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/subtitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Personal Voice Assistant"
+            android:textSize="16sp"
+            android:textColor="#AAAAAA"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"/>
+
+        <!-- Step 1: Welcome -->
+        <LinearLayout
+            android:id="@+id/welcomeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="60dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:text="🎙️"
+                android:textSize="80sp"
+                android:gravity="center"
+                android:background="@drawable/circle_background"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hands-Free Voice Control"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="32dp"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Control your entire phone using only your voice. Perfect for elderly users, accessibility needs, or hands-free operation."
+                android:textSize="14sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginTop="16dp"
+                android:textAlignment="center"
+                android:lineSpacingExtra="4dp"/>
+
+        </LinearLayout>
+
+        <!-- Step 2: Name Selection -->
+        <LinearLayout
+            android:id="@+id/nameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="60dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter your assistant's name:"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="12dp"/>
+
+            <EditText
+                android:id="@+id/nameInput"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="e.g., Ravi, Chitti, Buddy"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#666666"
+                android:background="@drawable/input_background"
+                android:padding="16dp"
+                android:inputType="textCapWords"
+                android:maxLines="1"/>
+
+            <TextView
+                android:id="@+id/nameExamples"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Examples: Ravi, Chitti, Buddy, Anaya, VAANI"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginTop="24dp"
+                android:lineSpacingExtra="4dp"/>
+
+        </LinearLayout>
+
+        <!-- Step 3: Language Selection -->
+        <LinearLayout
+            android:id="@+id/languageContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="60dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select your preferred language:"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="12dp"/>
+
+            <Spinner
+                android:id="@+id/languageSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/input_background"
+                android:padding="16dp"
+                android:popupBackground="#2D2D44"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VAANI will understand and speak in your chosen language. You can also mix languages (Hinglish, Telugish, etc.)"
+                android:textSize="14sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginTop="24dp"
+                android:lineSpacingExtra="4dp"/>
+
+        </LinearLayout>
+
+        <!-- Step 4: Permissions -->
+        <LinearLayout
+            android:id="@+id/permissionsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="60dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Required permissions:"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"/>
+
+            <LinearLayout
+                android:id="@+id/permissionsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+        </LinearLayout>
+
+        <!-- Step 5: Complete -->
+        <LinearLayout
+            android:id="@+id/completeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:text="✅"
+                android:textSize="80sp"
+                android:gravity="center"
+                android:background="@drawable/circle_background"/>
+
+            <TextView
+                android:id="@+id/wakeWordText"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Say &quot;Hey Ravi&quot; to activate"
+                android:textSize="18sp"
+                android:textColor="#00D4FF"
+                android:layout_marginTop="32dp"
+                android:textAlignment="center"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="VAANI is now ready to help you control your phone with your voice. Tap the button below to start!"
+                android:textSize="14sp"
+                android:textColor="#CCCCCC"
+                android:layout_marginTop="16dp"
+                android:textAlignment="center"
+                android:lineSpacingExtra="4dp"/>
+
+        </LinearLayout>
+
+        <!-- Spacer -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <!-- Next Button -->
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:text="Get Started"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#00D4FF"
+            android:textColor="#0F0F1E"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="32dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

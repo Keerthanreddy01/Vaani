@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VAANI Voice Assistant</string>
+    <string name="accessibility_service_description">Allows VAANI to control your phone with voice commands. This includes opening apps, tapping buttons, scrolling, and reading screen content.</string>
+</resources>
