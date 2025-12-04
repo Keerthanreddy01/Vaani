@@ -1,59 +1,52 @@
-# 🎙️ VAANI - Voice Assistant
+# 🎙️ VAANI - Voice Assistant for Android
 
-> Speak "Open WhatsApp" and watch it open on your Android phone!
+A simple voice assistant that runs on your Android phone. Speak "Open WhatsApp" and it opens instantly.
 
-## ⚡ Quick Start (3 Steps)
+## 📖 What Is VAANI?
 
-```bash
-# 1. Clone
-git clone https://github.com/Keerthanreddy01/Vaani.git
+VAANI is a native Android application that converts voice commands into phone actions. It uses Android's built-in speech recognition to understand what you say, then executes the corresponding command.
 
-# 2. Build in Android Studio
-# File → Open → vaani_voice_app/
-# Build → Build APK
+**Example:** You say "Open WhatsApp" → App recognizes voice → WhatsApp opens.
 
-# 3. Install & Test
-adb install -r app/build/outputs/apk/debug/app-debug.apk
-```
+All processing happens on your device. No servers, no internet required.
 
-## 🎤 How It Works
-
-1. **Tap button** on your phone
-2. **Speak command**: "Open WhatsApp"  
-3. **App opens instantly** ✨
-
-```
-🎤 Phone Mic → 🧠 Speech Recognition → 📝 Intent → ⚡ Execute → ✅ Done
-```
-
-## 🎯 Supported Commands
-
-| Command | Result |
-|---------|--------|
-| "Open WhatsApp" | Opens WhatsApp |
-| "Open Chrome" | Opens Chrome |
-| "Open Gmail" | Opens Gmail |
-| "Go home" | Home screen |
-
-## 📁 Structure
+## 🏗️ Project Structure
 
 ```
 vaani_voice_app/
-└── app/src/main/java/com/vaani/voice/MainActivity.kt
+├── app/
+│   ├── src/main/
+│   │   ├── java/com/vaani/voice/
+│   │   │   └── MainActivity.kt              # Voice recognition & execution
+│   │   ├── res/
+│   │   │   ├── layout/activity_main.xml    # UI
+│   │   │   └── values/                      # Strings & colors
+│   │   └── AndroidManifest.xml             # Permissions & config
+│   └── build.gradle                         # Dependencies
+├── build.gradle                             # Build config
+└── gradle/                                  # Gradle wrapper
 ```
 
-Just **one Kotlin file** with everything you need!
+## 💡 How It Works
 
-## 🔧 Built With
+1. User taps button → Activates microphone
+2. App listens → Uses Android SpeechRecognizer
+3. Converts speech to text → "Open WhatsApp"
+4. Matches intent → Recognizes command
+5. Executes action → Launches app
+6. Speaks response → "Opening WhatsApp"
 
-- **Kotlin** + Android SDK
-- **SpeechRecognizer** API (built-in Android)
-- **TextToSpeech** API (built-in Android)
-- Tested on **Vivo V2050 (Android 13)**
+## 🎯 Supported Commands
 
-## 📝 Add More Commands
+- "Open WhatsApp" - Opens WhatsApp
+- "Open Chrome" - Opens Chrome
+- "Open Gmail" - Opens Gmail
+- "Open YouTube" - Opens YouTube
+- "Go home" - Returns to home screen
 
-Edit `MainActivity.kt`:
+## 🔧 How to Extend
+
+Edit `MainActivity.kt` to add new commands:
 
 ```kotlin
 cmd.contains("facebook") -> {
@@ -62,25 +55,24 @@ cmd.contains("facebook") -> {
 }
 ```
 
-That's it! Rebuild and test.
+## 📦 Built With
 
-## 📦 License
+- Kotlin
+- Android SDK
+- SpeechRecognizer API (built-in Android)
+- TextToSpeech API (built-in Android)
 
-MIT - Open source, free to use & modify
-
----
-
-## 👤 Connect With Me
+## 👤 Author
 
 **Keerthan Reddy**
 
-📧 **Email:** keerthanreddy1706@gmail.com  
-🔗 **GitHub:** [@Keerthanreddy01](https://github.com/Keerthanreddy01)  
-💼 **LinkedIn:** [Keerthan Reddy](https://www.linkedin.com/in/keerthan-reddy-71a5b5370/)
+📧 keerthanreddy1706@gmail.com  
+🔗 GitHub: https://github.com/Keerthanreddy01  
+💼 LinkedIn: https://www.linkedin.com/in/keerthan-reddy-71a5b5370/
 
----
+## 📄 License
 
-**Made with ❤️**
+MIT License
 
 **Or with Python:**
 ```bash
