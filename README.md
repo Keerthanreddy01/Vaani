@@ -1,10 +1,13 @@
-# 🎙️ VAANI
 
-Voice assistant that runs on Android. Speak commands and they execute on your phone.
+# 🎙️ VAANI - Voice Assistant for Android
+
+A comprehensive voice-controlled Android assistant that converts natural speech into actionable commands on your mobile device.
 
 ## What Is It?
 
-VAANI is an Android app that converts voice to actions. Say "Open WhatsApp" → WhatsApp opens.
+VAANI is an advanced Android voice assistant that combines cutting-edge speech recognition, natural language understanding, and dialogue management to provide seamless hands-free control of your smartphone. Simply speak commands and they execute instantly on your device.
+
+**Key Capability**: Say "Open WhatsApp" → WhatsApp opens. Say "What's the weather?" → Get the weather forecast.
 
 ## Project Structure
 
