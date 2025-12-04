@@ -1,315 +1,86 @@
-# 🎙️ VAANI - Voice-Activated AI Natural Interface
+# 🎙️ VAANI - Voice Assistant
 
-> **A beautiful, simple voice assistant that runs natively on your Android phone. Just speak commands like "Open WhatsApp" and watch them execute!**
+> Speak "Open WhatsApp" and watch it open on your Android phone!
 
----
+## ⚡ Quick Start (3 Steps)
 
-## 🌟 Features
-
-✨ **100% Phone-Based**
-- Everything runs ON your phone (not laptop)
-- Uses your phone's microphone
-- No PC involvement after installation
-
-🎤 **Voice Commands**
-- "Open WhatsApp" → WhatsApp opens
-- "Open Chrome" → Chrome opens  
-- "Go home" → Home screen appears
-- Natural speech recognition
-
-⚡ **Simple & Fast**
-- No complex setup
-- One-tap to activate
-- Instant response
-
-🎯 **Real Voice Assistant**
-- Like Google Assistant or Siri
-- But yours, customizable
-- Open source
-
----
-
-## 📱 Architecture
-
-```
-┌─────────────────────────────────────┐
-│      YOUR VIVO ANDROID PHONE        │
-├─────────────────────────────────────┤
-│                                     │
-│  🎤 Microphone (AudioRecord)        │
-│         ↓                           │
-│  🧠 Speech Recognition (Android)    │
-│         ↓                           │
-│  📝 Intent Classification (NLU)     │
-│         ↓                           │
-│  ⚡ Action Execution (on phone)     │
-│         ↓                           │
-│  ✅ App Opens / Command Executes    │
-│                                     │
-└─────────────────────────────────────┘
-```
-
----
-
-## 🚀 Quick Start
-
-### Prerequisites
-- Android Studio (to build)
-- Android phone (API 24+)
-- USB cable for ADB
-
-### Installation
-
-**Step 1: Clone & Open**
 ```bash
+# 1. Clone
 git clone https://github.com/Keerthanreddy01/Vaani.git
-cd Vaani/vaani_voice_app
-```
 
-**Step 2: Build in Android Studio**
-1. Open Android Studio
-2. File → Open → select `vaani_voice_app` folder
-3. Wait for Gradle sync
-4. Click Build → Build APK
+# 2. Build in Android Studio
+# File → Open → vaani_voice_app/
+# Build → Build APK
 
-**Step 3: Install on Phone**
-```bash
+# 3. Install & Test
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
-**Step 4: Launch & Test**
-1. Open VAANI app on your phone
-2. Grant microphone permission
-3. Tap the big green button
-4. **SPEAK**: "Open WhatsApp"
-5. Watch it open! 🎉
+## 🎤 How It Works
 
----
+1. **Tap button** on your phone
+2. **Speak command**: "Open WhatsApp"  
+3. **App opens instantly** ✨
+
+```
+🎤 Phone Mic → 🧠 Speech Recognition → 📝 Intent → ⚡ Execute → ✅ Done
+```
 
 ## 🎯 Supported Commands
 
-| Command | Action |
+| Command | Result |
 |---------|--------|
 | "Open WhatsApp" | Opens WhatsApp |
-| "Open Chrome" | Opens Chrome browser |
+| "Open Chrome" | Opens Chrome |
 | "Open Gmail" | Opens Gmail |
-| "Open YouTube" | Opens YouTube |
-| "Go home" | Returns to home screen |
+| "Go home" | Home screen |
 
-*More commands can be easily added in `MainActivity.kt`*
-
----
-
-## 📁 Project Structure
+## 📁 Structure
 
 ```
 vaani_voice_app/
-├── app/
-│   ├── src/main/
-│   │   ├── java/com/vaani/voice/
-│   │   │   └── MainActivity.kt          ← All logic here
-│   │   ├── res/layout/
-│   │   │   └── activity_main.xml        ← UI layout
-│   │   └── AndroidManifest.xml          ← Permissions
-│   └── build.gradle                     ← Dependencies
-├── build.gradle                         ← Project config
-└── settings.gradle
+└── app/src/main/java/com/vaani/voice/MainActivity.kt
 ```
 
----
+Just **one Kotlin file** with everything you need!
 
-## 🔧 How It Works
+## 🔧 Built With
 
-### MainActivity.kt
-The entire app is in one simple file:
+- **Kotlin** + Android SDK
+- **SpeechRecognizer** API (built-in Android)
+- **TextToSpeech** API (built-in Android)
+- Tested on **Vivo V2050 (Android 13)**
 
-1. **SpeechRecognizer Setup**
-   - Configures Android's built-in speech recognition
-   - Sets language to English
-   
-2. **Voice Listening**
-   - Captures what you say
-   - Converts speech to text
+## 📝 Add More Commands
 
-3. **Intent Matching**
-   - Checks if text contains "whatsapp", "chrome", etc.
-   - Executes the corresponding action
-
-4. **App Launching**
-   - Uses Android Intent system
-   - Safely opens requested apps
-
-5. **Text-to-Speech**
-   - Speaks back confirmation
-   - "Opening WhatsApp" feedback
-
----
-
-## 🎨 UI
-
-```
-┌──────────────────────┐
-│   🎙️ VAANI          │
-│                      │
-│ Tap button and       │
-│ say your command     │
-│                      │
-│    ┌──────────┐      │
-│    │    🎤    │      │
-│    │  TAP TO  │      │
-│    │  SPEAK   │      │
-│    └──────────┘      │
-│                      │
-│ Try saying:          │
-│ • Open WhatsApp      │
-│ • Open Chrome        │
-│ • Go home            │
-└──────────────────────┘
-```
-
----
-
-## 🔐 Permissions
-
-The app requests only essential permissions:
-- `RECORD_AUDIO` - Listen to your voice
-- `INTERNET` - For speech recognition
-
-Both requested at runtime for transparency.
-
----
-
-## 📝 Adding New Commands
-
-Want to add more commands? Edit `MainActivity.kt`:
+Edit `MainActivity.kt`:
 
 ```kotlin
-private fun executeCommand(command: String) {
-    val cmd = command.lowercase()
-    
-    val result = when {
-        cmd.contains("whatsapp") -> {
-            openApp("com.whatsapp")
-            "Opening WhatsApp"
-        }
-        cmd.contains("new app") -> {      // ← Add here
-            openApp("com.package.name")
-            "Opening new app"
-        }
-        // ... more commands
-    }
+cmd.contains("facebook") -> {
+    openApp("com.facebook.katana")
+    "Opening Facebook"
 }
 ```
 
-Then rebuild and reinstall.
+That's it! Rebuild and test.
+
+## 📦 License
+
+MIT - Open source, free to use & modify
 
 ---
 
-## 🐛 Troubleshooting
-
-**App won't start?**
-- Check Android 24+ compatibility
-- Grant microphone permission
-
-**No voice response?**
-- Ensure microphone permission is granted
-- Check phone speaker volume
-- Restart app
-
-**Command not recognized?**
-- Speak clearly
-- Try different wording
-- Check if app is installed on phone
-
-**Build fails?**
-- Sync Gradle in Android Studio
-- Update Android SDK
-- Check Java version (11+)
-
----
-
-## 📊 Technical Details
-
-**Built with:**
-- Kotlin + Android SDK
-- Android SpeechRecognizer API
-- Android TextToSpeech API
-- Material Design UI
-
-**Tested on:**
-- Vivo V2050 (Android 13)
-- Minimum SDK: API 24 (Android 7.0)
-- Target SDK: API 33 (Android 13)
-
----
-
-## 🎓 Learning Resources
-
-This project teaches:
-- ✅ Android app development
-- ✅ Voice recognition integration
-- ✅ Intent-based app launching
-- ✅ Permission handling
-- ✅ Service architecture
-
-Perfect for learning Android voice features!
-
----
-
-## 🚀 Future Enhancements
-
-- [ ] Always-on wake word detection
-- [ ] More sophisticated NLU
-- [ ] Custom command profiles
-- [ ] Multi-language support
-- [ ] Gesture-based actions
-- [ ] Cloud integration (optional)
-
----
-
-## 📄 License
-
-MIT License - Feel free to use, modify, and distribute!
-
----
-
-## 👨‍💻 Author
+## 👤 Connect With Me
 
 **Keerthan Reddy**
-- GitHub: [@Keerthanreddy01](https://github.com/Keerthanreddy01)
-- Project: VAANI Voice Assistant
+
+📧 **Email:** keerthanreddy1706@gmail.com  
+🔗 **GitHub:** [@Keerthanreddy01](https://github.com/Keerthanreddy01)  
+💼 **LinkedIn:** [Keerthan Reddy](https://www.linkedin.com/in/keerthan-reddy-71a5b5370/)
 
 ---
 
-## 💬 Support
-
-Having issues? 
-1. Check Troubleshooting section above
-2. Review `MainActivity.kt` comments
-3. Check Android Studio build output
-4. Verify permissions on phone
-
----
-
-## 🎉 Demo
-
-```
-YOU: "Hey, open WhatsApp"
-     ↓
-VAANI: "🎤 Listening..."
-     ↓
-VAANI: "✅ Opening WhatsApp"
-     ↓
-RESULT: WhatsApp opens on your phone!
-```
-
-That's it! Simple, clean, and it works.
-
----
-
-**Made with ❤️ for Android developers**
-
-*Last Updated: December 2025*
+**Made with ❤️**
 
 **Or with Python:**
 ```bash
