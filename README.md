@@ -1,78 +1,45 @@
-# 🎙️ VAANI - Voice Assistant for Android
+# 🎙️ VAANI
 
-A simple voice assistant that runs on your Android phone. Speak "Open WhatsApp" and it opens instantly.
+Voice assistant that runs on Android. Speak commands and they execute on your phone.
 
-## 📖 What Is VAANI?
+## What Is It?
 
-VAANI is a native Android application that converts voice commands into phone actions. It uses Android's built-in speech recognition to understand what you say, then executes the corresponding command.
+VAANI is an Android app that converts voice to actions. Say "Open WhatsApp" → WhatsApp opens.
 
-**Example:** You say "Open WhatsApp" → App recognizes voice → WhatsApp opens.
-
-All processing happens on your device. No servers, no internet required.
-
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 vaani_voice_app/
-├── app/
-│   ├── src/main/
-│   │   ├── java/com/vaani/voice/
-│   │   │   └── MainActivity.kt              # Voice recognition & execution
-│   │   ├── res/
-│   │   │   ├── layout/activity_main.xml    # UI
-│   │   │   └── values/                      # Strings & colors
-│   │   └── AndroidManifest.xml             # Permissions & config
-│   └── build.gradle                         # Dependencies
-├── build.gradle                             # Build config
-└── gradle/                                  # Gradle wrapper
+├── app/src/main/
+│   ├── java/com/vaani/voice/MainActivity.kt
+│   ├── res/layout/activity_main.xml
+│   └── AndroidManifest.xml
+├── build.gradle
+└── settings.gradle
 ```
 
-## 💡 How It Works
+## How It Works
 
-1. User taps button → Activates microphone
-2. App listens → Uses Android SpeechRecognizer
-3. Converts speech to text → "Open WhatsApp"
-4. Matches intent → Recognizes command
-5. Executes action → Launches app
-6. Speaks response → "Opening WhatsApp"
+Speech Recognition → Intent Match → Execute Action
 
-## 🎯 Supported Commands
+## Commands
 
-- "Open WhatsApp" - Opens WhatsApp
-- "Open Chrome" - Opens Chrome
-- "Open Gmail" - Opens Gmail
-- "Open YouTube" - Opens YouTube
-- "Go home" - Returns to home screen
+- "Open WhatsApp"
+- "Open Chrome"
+- "Open Gmail"
+- "Open YouTube"
+- "Go home"
 
-## 🔧 How to Extend
-
-Edit `MainActivity.kt` to add new commands:
-
-```kotlin
-cmd.contains("facebook") -> {
-    openApp("com.facebook.katana")
-    "Opening Facebook"
-}
-```
-
-## 📦 Built With
+## Built With
 
 - Kotlin
 - Android SDK
-- SpeechRecognizer API (built-in Android)
-- TextToSpeech API (built-in Android)
+- SpeechRecognizer API
+- TextToSpeech API
 
-## 👤 Author
+## License
 
-**Keerthan Reddy**
-
-📧 keerthanreddy1706@gmail.com  
-🔗 GitHub: https://github.com/Keerthanreddy01  
-💼 LinkedIn: https://www.linkedin.com/in/keerthan-reddy-71a5b5370/
-
-## 📄 License
-
-MIT License
+MIT
 
 **Or with Python:**
 ```bash
