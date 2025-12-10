@@ -43,10 +43,24 @@
             android:exported="false"
             android:screenOrientation="portrait">
         </activity>
+        
+        <!-- New Main Activity with Wake Word Setup -->
+        <activity
+            android:name=".MainActivityNew"
+            android:exported="false"
+            android:screenOrientation="portrait">
+        </activity>
 
         <!-- Voice Service (Foreground Service) -->
         <service
             android:name=".VaaniVoiceService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+            
+        <!-- New Vaani Service with Wake Word Detection -->
+        <service
+            android:name=".VaaniService"
             android:enabled="true"
             android:exported="false"
             android:foregroundServiceType="microphone" />

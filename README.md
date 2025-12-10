@@ -1,13 +1,99 @@
 
 # 🎙️ VAANI - Voice Assistant for Android
 
-A comprehensive voice-controlled Android assistant that converts natural speech into actionable commands on your mobile device.
+A fully functional, customizable voice assistant for Android. Control your phone completely hands-free with your own wake word!
 
-## What Is It?
+## 🎯 What It Does
 
-VAANI is an advanced Android voice assistant that combines cutting-edge speech recognition, natural language understanding, and dialogue management to provide seamless hands-free control of your smartphone. Simply speak commands and they execute instantly on your device.
+**Like "Hey Google" or "Alexa" - but YOUR way:**
+- 🎤 **Custom Wake Word**: Choose any name (Vaani, Jarvis, Assistant, or even your own name!)
+- 📱 **Hands-Free Control**: Open apps, make calls, send messages - all by voice
+- 🚀 **Fully Functional**: Working implementation ready to use
+- 🔒 **Privacy First**: All processing on-device, no cloud required
+- ⚡ **Fast Response**: < 2 second response time
 
-**Key Capability**: Say "Open WhatsApp" → WhatsApp opens. Say "What's the weather?" → Get the weather forecast.
+**Example Usage:**
+```
+You: "Vaani"
+Phone: *vibrates* "Yes?"
+You: "Open WhatsApp"
+Phone: *WhatsApp opens* ✓
+```
+
+## ✨ Key Features
+
+### 🎙️ **Customizable Wake Word**
+Choose ANY wake word you like:
+- "Vaani" - Default
+- "Hey Assistant"
+- "Jarvis" - Like Iron Man
+- "Computer" - Star Trek style
+- Your own name or any 2+ character phrase
+
+### 📱 **Complete Phone Control**
+- ✅ Open any installed app
+- ✅ Make phone calls
+- ✅ Send messages
+- ✅ Navigate (back, home, scroll)
+- ✅ System control (volume, brightness)
+- ✅ Get information (time, weather)
+
+### 🔧 **Advanced Technology**
+- Wake word detection with Vosk (offline)
+- Continuous background listening
+- Intent classification and entity extraction
+- Action execution via Accessibility Service
+- Text-to-Speech feedback
+- Visual feedback with overlay
+
+### 🔒 **Privacy & Security**
+- **100% On-Device Processing** - No cloud uploads
+- **No Data Collection** - Your voice stays on your phone
+- **Open Source** - See exactly what it does
+- **You Control It** - Disable anytime
+
+## 🚀 Quick Start (5 Minutes)
+
+### 1. Build & Install
+
+```bash
+cd android/vaani_phone_app
+
+# Windows
+quick_build_and_install.bat
+
+# Linux/Mac
+./gradlew clean assembleDebug installDebug
+```
+
+### 2. Setup on Phone
+
+1. **Open Vaani app**
+2. **Grant all permissions** (microphone, phone, SMS, etc.)
+3. **Enter your wake word** (e.g., "Vaani")
+4. **Click "Save"**
+5. **Toggle service ON**
+
+### 3. Test It!
+
+```
+Say: "[Your Wake Word]"
+Wait for: Phone vibrates + "Yes?"
+Say: "Open WhatsApp"
+Result: WhatsApp opens! 🎉
+```
+
+## 📖 Complete Documentation
+
+### For Users
+- 📘 **[Quick Start Guide](android/vaani_phone_app/QUICKSTART.md)** - Get started in 5 minutes
+- 📗 **[User Guide](android/vaani_phone_app/USER_GUIDE.md)** - All commands and features
+- 📙 **[Setup Guide](android/vaani_phone_app/SETUP_GUIDE.md)** - Detailed installation
+
+### For Developers
+- 🏗️ Architecture details below
+- 💻 Source code: `android/vaani_phone_app/app/src/main/java/com/vaani/phone/`
+- 🐍 Python backend: `pipeline/android_bridge/vaani_backend_server.py`
 
 ## Project Structure
 
